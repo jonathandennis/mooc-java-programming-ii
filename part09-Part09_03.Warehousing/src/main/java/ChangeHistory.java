@@ -16,14 +16,10 @@ public class ChangeHistory {
     }
     
     public double maxValue() {
-        double maxVal = 0.0;
-        
-        if (amountHistory.isEmpty()) {
-            return maxVal;
-        }
-        
-        for(Double amount : amountHistory) {
-            if (amount > maxVal) {
+        double maxVal = this.amountHistory.get(0);
+
+        for(Double amount : this.amountHistory) {
+            if (maxVal < amount) {
                 maxVal = amount;
             }
         }
@@ -31,14 +27,10 @@ public class ChangeHistory {
     }
     
     public double minValue() {
-        double minVal = 1000.0;
+        double minVal = this.amountHistory.get(0);
         
-        if (amountHistory.isEmpty()) {
-            return 0.0;
-        }
-        
-        for(Double amount : amountHistory) {
-            if (amount < minVal) {
+        for (Double amount : this.amountHistory) {
+            if (minVal > amount) {
                 minVal = amount;
             }
         }
@@ -46,18 +38,16 @@ public class ChangeHistory {
     }
     
     public double average() {
-        double sumAmounts = 0.0;
-        int count = 0;
-        
-        if (amountHistory.isEmpty()) {
-            return sumAmounts;
+
+        if (this.amountHistory.isEmpty()) {
+            return 0;
         }
         
-        for(Double amount : amountHistory) {
+        double sumAmounts = 0;
+        for(Double amount : this.amountHistory) {
             sumAmounts += amount;
-            count++;
         }
-        return sumAmounts / count;
+        return sumAmounts / this.amountHistory.size();
     }
     
     @Override

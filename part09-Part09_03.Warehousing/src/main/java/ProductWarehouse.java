@@ -8,7 +8,7 @@ public class ProductWarehouse extends Warehouse {
     }
     
     public String getName() {
-        return productName;
+        return this.productName;
     }
     
     public void setName(String newName) {
@@ -17,6 +17,6 @@ public class ProductWarehouse extends Warehouse {
     
     @Override
     public String toString() {
-        return productName + ": " + super.toString();
+        return this.productName + ": " + super.toString();
     }
 }
